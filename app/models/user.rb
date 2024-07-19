@@ -1,7 +1,7 @@
 class User < ApplicationRecord
-  belongs_to :tenant
+  belongs_to :tenant, optional: true
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
-  devise :database_authenticatable, :registerable,
+  devise :database_authenticatable, :registerable, :confirmable,
          :recoverable, :rememberable, :validatable
 end

@@ -9,9 +9,9 @@
 </li>
 
 <li class="col-md-1"> </li>
+ <%= link_to "<i class='fa fa-users'></i> Add Members".html_safe,new_member_path,class: 'navbar-link btn btn-primary' %>
 
-<li class="col-md-3 logout"><%= link_to('Logout', destroy_user_session_path, class: 'btn btn-xs btn-danger', title: 'Logout', :method => :delete) %></li>
-
+<%= button_to "LogOut", destroy_user_session_path, method: :delete,class: "btn btn-xs btn-danger mx-3" %>
 <% else %>
 
 <li class="col-md-4 pull-right">

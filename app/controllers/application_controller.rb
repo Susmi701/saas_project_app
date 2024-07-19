@@ -1,10 +1,12 @@
 class ApplicationController < ActionController::Base
-  set_current_tenant_by_subdomain(:account, :subdomain)
-  #set_current_tenant_through_filter
-  # before_action :set_tenant
-  # before_action :set_member, only: [:show, :edit, :update, :destroy]
+  set_current_tenant_through_filter
+  before_action :set_tenant
 
-  # def set_tenant
-  #   set_current_tenant(current_user.account)
-  # end
+  private
+  def set_tenant
+    if current_user
+      ActsAsTenant.current_tenant = current_user.tenant
+      
+    end
+  end
 end

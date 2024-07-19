@@ -1,0 +1,15 @@
+<%= form_with(model: @tenant, url: tenants_path, method: :post, local: true) do |form| %>
+  <div class="field">
+    <%= form.label :name %>
+    <%= form.text_field :name %>
+  </div>
+
+  <div class="field">
+    <%= form.label :plan, "Select Plan" %>
+    <%= form.select :plan, Tenant.plans.keys.map { |plan| [plan.titleize, plan] } %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit "Create Tenant" %>
+  </div>
+<% end %>
